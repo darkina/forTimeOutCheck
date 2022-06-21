@@ -416,71 +416,10 @@ It should run the tests and shows the results in the terminal:
 In an delivery pipeline everything is usually executed without a user interface. Thus, opening a normal browser would not work. However, most browsers also offer a headless mode. The browser is started without a user interface.
 >You can run the script also with a headless browser: `npm run ci-frontend-unit-test -- --headless`.
 
-[VALIDATE_1]
-
-[ACCORDION-END]
-
-
-[ACCORDION-BEGIN [Step 7: ](Run tests in the General Purpose Pipeline of project "Piper")]
-
-Please setup a continuous delivery pipeline for this project as learned in  [Set Up Continuous Integration and Delivery for SAP Cloud SDK](cloudsdk-ci-cd).
-
-This pipeline will automatically run the backend unit and integration tests and frontend unit tests implemented as part of this tutorial.
-
-As the integration tests depend on a connection to an SAP S/4HANA or a corresponding mock system, this connection needs to be configured. We discussed this option in [Connect to OData Service on Cloud Foundry Using SAP Cloud SDK](s4sdk-odata-service-cloud-foundry). First make sure that the system you configured in the file `integration-tests/src/test/resources/systems.yml` is accessible from your Cx-server instance. For example:
-
-```YAML
-erp:
-  default: "MOCK_SYSTEM"
-  systems:
-#    - alias: "ERP_SYSTEM"
-#      uri: "https://myXXXXXX.s4hana.ondemand.com"
-#      proxy: "http://proxy:8080"
-    - alias: "MOCK_SYSTEM"
-      uri: "http://my-mock-server.corp:3000"
-
-```
-
-You also need an additional file containing the credentials to access the system you configured above. As you would usually not commit this file, you can instruct the pipeline to create it for you. In the section `stages` you can configure the stage `Integration` to create a credential file for a system with the specific alias you also used before in the file `systems.yml`. The credentials with the corresponding ID have to be configured as described in the tutorial [Set Up Continuous Integration and Delivery for SAP Cloud SDK](cloudsdk-ci-cd).
-
-```YAML
-stages:
-  Integration:
-    credentials:
-      - alias: 'MOCK_SYSTEM'
-        credentialId: 'MY-MOCK-ERP'
-```
-
-For the frontend unit tests you have to configure the location of the test report location as configured in the `karma.conf.js`. As the npm script `ci-frontend-unit-test` should be invoked instead of the automatic discovery of the karma file, the step `karmaExecuteTests` has to be disabled.
-
-```YAML
-stages:
-  "Additional Unit Tests":
-    karmaExecuteTests: false
-    junit:
-      active: true
-      allowEmptyResults: true
-      pattern: 's4hana_pipeline/reports/frontend-unit/**/Test*.xml'
-```
-
-The resulting pipeline should look like as shown in the following screenshot.
-
-![Pipeline](pipeline.png)
-
-[DONE]
-[ACCORDION-END]
-
-
-[ACCORDION-BEGIN [Step 8: ](Troubleshoot and questions)]
-
-Are you facing a development question? Then check out Stack Overflow for SAP Cloud SDK related questions. If you do not find an answer, feel free to post your question and make sure to attach the tag `sap-cloud-sdk`. Our team, as well as the whole Stack Overflow community, are at your service and will quickly react to your question.
-
-For an overview of SAP Cloud SDK related questions, go to <https://stackoverflow.com/questions/tagged/sap-cloud-sdk>.
-
-You think that you found a bug in one of our Continuous Delivery artifacts? Feel free to open an issue in our GitHub repository on <https://github.com/SAP/jenkins-library/issues>.
-
 [DONE]
 
 [ACCORDION-END]
+
+
 
 ---
