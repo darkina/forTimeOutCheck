@@ -28,6 +28,7 @@ This tutorial assumes you are already familiar with the basics of the SAP Cloud 
 ---
 [ACCORDION-BEGIN [Step 1: ](Test Pyramid)]
 In general, there are multiple kinds of tests differentiating mainly in the granularity of testing. They all have their advantages and disadvantages. A common visualization is the testing pyramid. Based on the costs of the tests it visualizes that you should have much more unit tests than integration tests than E2E (End-To-End) tests. The costs for creating, running and maintaining increase while you move the pyramid up.
+[Download JSON](test.json)
 
 ![Testing Pyramid](testing-pyramid.png)
 
