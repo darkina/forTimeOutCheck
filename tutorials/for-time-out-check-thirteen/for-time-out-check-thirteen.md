@@ -1,5 +1,5 @@
 ---
-title: Daria For Time Out Check Thirteen TEST
+title: Daria For Time Out Check Thirteen
 description: Use UIVeri5 to create system tests against a CAP-based sample application. Automate your tests through a CI/CD pipeline.
 auto_validation: true
 time: 60
