@@ -161,7 +161,7 @@ In Visual Studio Code, set up and run your bookshop application.
     ![Conf.js after finishing the project setup](confjs.png)
 
 
-[VALIDATE_6]
+[DONE]
 [ACCORDION-END]
 
 [ACCORDION-BEGIN [Step 2: ](Walk through the test scenario)]
