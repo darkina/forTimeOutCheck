@@ -82,7 +82,7 @@ You should now see the **SAP Easy Access** screen.  Your account is now active a
 
 Enter the URL of the SAP Easy Access page below and click **Validate**.
 
-[VALIDATE_7]
+[DONE]
 
 [ACCORDION-END]
 
