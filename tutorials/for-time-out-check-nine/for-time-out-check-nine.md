@@ -289,7 +289,7 @@ cap-service-****   [kyma-gateway.kyma-system.svc.cluster.local]  [cap-service.**
 
   **Congratulations!** You have successfully configured the Cap Service.
 
-[VALIDATE_1]
+[DONE]
 [ACCORDION-END]
 
 ---
